@@ -16,3 +16,6 @@ where year(pos_dt) in (2023,2024)
 group by cls_dt,mat_rnew_cd,ddc_int_tp_cd,net_dcn_amt,ccy_amt,unamz_amt,upd_expn_amt,dep_ar_id,no_of_mo_stop_clcn_cmsn
 limit 50;
 ---------------------------------------------------------------------------------------
+SELECT upd_expn_amt,no_of_mo_stop_clcn_cmsn
+from datalake_view.vp_ac_inf
+GROUP BY 1,2;
