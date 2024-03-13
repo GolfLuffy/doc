@@ -1,1 +1,18 @@
+select ar_id,orig_ar_id,ar_lcs_tp_cd,opn_dt,cls_dt,coa_pd_ftr_cd,pd_tp_cd,pd_sub_tp_cd,ar_own_tp_cd,ctr_dt,eff_dt
+,mat_rnew_cd,mat_dt,ctr_ar_term,ctr_ar_term_uom_tp_cd,ar_pps_tp_cd,kbnk_idy_cl_cd,ddc_int_tp_cd,lg_cnl_cd,net_dcn_amt,
+lmt_ar_id,lmt_amt,dsbr_dt,tot_dr_txn_amt,pnp_amt,otsnd_bal,ccy_amt,ccy_cd,acr_int_amt,acr_int_amt,acr_int_pymt_in_mo_amt,
+upd_int_bill_amt,unamz_amt,tot_due_amt,upd_fee_amt,upd_bill_amt,upd_expn_amt,odue_amt,odue_dt,odue_prd,dlq_dys,fee_rate_pct,
+acm_act_fee_amt,bill_seq_no,tot_no_instl,pymt_due_amt,pymt_due_dt,ddc_ar_id,dep_ar_id,last_pymt_dt,nxt_pymt_dt,acm_rpymt_amt,
+acm_act_pnp_pymt_amt,rate_tp_cd,orig_int_rate_tp_cd,max_rate_pct,eff_sprd_rate_pct,eff_rate_pct,late_int_rate_tp_cd,
+pny_rate_pct,int_late_chrg_amt,acm_act_late_chrg_amt,rvrs_int_amt,memo_acr_int_amt,acm_act_acr_memo_pymt_amt,auto_tp_cd,
+aprvr_id,orig_adv_ar_id,coa_ac_pnp,issu_br_no,domc_br_no,mkt_cd,cmsn_tp_cd,cmsn_amt,no_of_mo_stop_clcn_cmsn
+from datalake_view.vp_ac_inf
+limit 100;
 
+---------------------------------------------------------------------------------------
+SELECT cls_dt,mat_rnew_cd,ddc_int_tp_cd,net_dcn_amt,ccy_amt,unamz_amt,upd_expn_amt,dep_ar_id,no_of_mo_stop_clcn_cmsn
+from datalake_view.vp_ac_inf
+where year(pos_dt) in (2023,2024)
+group by cls_dt,mat_rnew_cd,ddc_int_tp_cd,net_dcn_amt,ccy_amt,unamz_amt,upd_expn_amt,dep_ar_id,no_of_mo_stop_clcn_cmsn
+limit 50;
+---------------------------------------------------------------------------------------
