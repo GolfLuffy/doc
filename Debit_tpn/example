@@ -1,1 +1,59 @@
-
+select rndm_id,card_no_mask,card_no_encpt,ordr_br_no,card_tp_cd,card_stl_cd,crt_dt,issu_dt,st_cd,actv_dt,exp_yr_mo,cncl_dt
+,cncl_tm,sa_ar_id,ca_ar_id,prch_rgst_f,prch_lmt_amt,prch_lmt_udt_dt,prch_lmt_udt_tm,wd_lmt_amt,adv_lmt_amt,wd_lmt_udt_dt,
+wd_lmt_udt_tm,tfr_lmt_amt,tfr_lmt_udt_dt,tfr_lmt_udt_tm,prch_amt,prch_cnt,last_prch_dt,wd_amt,wd_cnt,last_wd_dt,
+lkg_ar_tfr_amt,lkg_ar_tfr_cnt,intra_bnk_tfr_amt,intra_bnk_tfr_cnt,orft_amt,orft_cnt,last_tfr_dt,last_tfr_amt,
+last_txn_dt,intr_bnk_fee_dt,intr_bnk_fee_mo_cnt,wd_fee_dt,wd_fee_cnt,t3ip_fee_cnt,t3ip_fee_dt,pymt_fee_dt,pymt_fee_cnt,
+pndg_anul_fee_dt,pndg_anul_fee_f,pndg_anul_fee_cnt,pndg_anul_fee_amt,entr_fee_amt,frst_yr_fee_amt,anul_fee_amt,
+due_yr_mo,last_ddc_fee_amt,last_ddc_fee_dt,rfnd_f,rfnd_amt,rfnd_dt,bad_pin_cnt,bad_pin_cnl,rset_pin_cnt
+from datalake_view.vp_dc_tpn_card
+limit 100;
+------------------------------------------------
+select prch_lmt_udt_dt,prch_lmt_udt_tm,
+wd_lmt_amt,adv_lmt_amt,
+wd_lmt_udt_tm,
+tfr_lmt_amt,tfr_lmt_udt_dt,
+tfr_lmt_udt_tm,prch_amt,prch_cnt,
+wd_amt,wd_cnt,
+wd_amt,wd_cnt,lkg_ar_tfr_amt,
+lkg_ar_tfr_cnt,intra_bnk_tfr_amt,
+intra_bnk_tfr_cnt,orft_amt,
+orft_cnt,last_tfr_dt,
+last_tfr_amt,intr_bnk_fee_dt,
+intr_bnk_fee_mo_cnt,wd_fee_dt,
+wd_fee_cnt,t3ip_fee_cnt,
+t3ip_fee_dt,pymt_fee_dt,
+pymt_fee_cnt,pndg_anul_fee_dt,
+pndg_anul_fee_f,
+pndg_anul_fee_cnt,
+pndg_anul_fee_amt,
+bad_pin_cnt,bad_pin_cnl,
+rset_pin_cnt
+from datalake_view.vp_dc_tpn_card
+group by prch_lmt_udt_dt,prch_lmt_udt_tm,
+wd_lmt_amt,adv_lmt_amt,
+wd_lmt_udt_tm,
+tfr_lmt_amt,tfr_lmt_udt_dt,
+tfr_lmt_udt_tm,prch_amt,prch_cnt,
+wd_amt,wd_cnt,
+wd_amt,wd_cnt,lkg_ar_tfr_amt,
+lkg_ar_tfr_cnt,intra_bnk_tfr_amt,
+intra_bnk_tfr_cnt,orft_amt,
+orft_cnt,last_tfr_dt,
+last_tfr_amt,intr_bnk_fee_dt,
+intr_bnk_fee_mo_cnt,wd_fee_dt,
+wd_fee_cnt,t3ip_fee_cnt,
+t3ip_fee_dt,pymt_fee_dt,
+pymt_fee_cnt,pndg_anul_fee_dt,
+pndg_anul_fee_f,
+pndg_anul_fee_cnt,
+pndg_anul_fee_amt,
+bad_pin_cnt,bad_pin_cnl,
+rset_pin_cnt;
+---------------------------------------
+select adv_lmt_amt,tfr_lmt_udt_tms,wd_amt,lkg_ar_tfr_amt,lkg_ar_tfr_cnt,intra_bnk_tfr_amt,
+intra_bnk_tfr_cnt,orft_amt,orft_cnt,last_tfr_dt,last_tfr_amt,intr_bnk_fee_dt,intr_bnk_fee_mo_cnt,
+wd_fee_dt,wd_fee_cnt,t3ip_fee_cnt,t3ip_fee_dt,pymt_fee_dt,pymt_fee_cnt,pndg_anul_fee_cnt,bad_pin_cnt
+from datalake_view.vp_dc_tpn_card
+group by  adv_lmt_amt,tfr_lmt_udt_tms,wd_amt,lkg_ar_tfr_amt,lkg_ar_tfr_cnt,intra_bnk_tfr_amt,
+intra_bnk_tfr_cnt,orft_amt,orft_cnt,last_tfr_dt,last_tfr_amt,intr_bnk_fee_dt,intr_bnk_fee_mo_cnt,
+wd_fee_dt,wd_fee_cnt,t3ip_fee_cnt,t3ip_fee_dt,pymt_fee_dt,pymt_fee_cnt,pndg_anul_fee_cnt,bad_pin_cnt;
