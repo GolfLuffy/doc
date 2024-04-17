@@ -16,7 +16,7 @@
             "module_name": "TransformationTask",
             "bypass_flag": false,
             "parameters": {
-                "script_path": "/script/mdp/tfrm/atm/curated/tfrm_atm_dc_prfl_dly",
+                "script_path": "/script/mdp/tfrm/atm/curated/tfrm_atm_dc_prfl_dly_cardlink_acq",
                 "script_parameters": {
                     "catalog": "mdp{{ env }}"
                 }
