@@ -12,13 +12,6 @@
         "target_view_name": "v_atm_dc_prfl_dly"
     },
     "tasks": {
-        "check_dependency_task": {
-            "module_name": "DependencyCheckingTask",
-            "bypass_flag": false,
-            "parameters": {
-                "dpdc_config_path": "/config/mdp/dpnd/tfrm/atm/curated/dpdc_tfrm_atm_dc_prfl_dly.json"
-            }
-        },
         "transform_data_task": {
             "module_name": "TransformationTask",
             "bypass_flag": false,
