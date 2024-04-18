@@ -1,0 +1,41 @@
+{
+    "area_name": "curated_ln_dly",
+    "area_seq": "1",
+    "job_name": "tfrm_ln_acct_prfl_dly",
+    "pipeline_name": "TransformationPipeline",
+    "job_info": {
+        "target_zone": "curated",
+        "target_catalog_name": "mdp{{env}}",
+        "target_database_name": "curated_ln",
+        "target_table_name": "ln_acct_prfl_dly",
+        "target_view_database_name": "curated_ln_view",
+        "target_view_name": "v_ln_acct_prfl_dly"
+    },
+    "tasks": {
+        "check_dependency_task": {
+            "module_name": "DependencyCheckingTask",
+            "bypass_flag": false,
+            "parameters": {
+                "dpdc_config_path": "/config/mdp/dpnd/tfrm/ln/curated/dpdc_tfrm_ln_acct_prfl_dly.json"
+            }
+        },
+        "transform_data_task": {
+            "module_name": "TransformationTask",
+            "bypass_flag": false,
+            "parameters": {
+                "script_path": "/script/mdp/tfrm/ln/curated/tfrm_ln_acct_prfl_dly",
+                "script_parameters": {
+                    "catalog": "mdp{{ env }}"
+                }
+            }
+        },
+        "record_count_check_task": {
+            "module_name": "TransformRecordCountCheckTask",
+            "bypass_flag": false,
+            "parameters": {
+                "target_database_table": "mdp{{env}}.curated_ln.ln_acct_prfl_dly",
+                "target_filter_cond": "ptn_yyyy = '{{ ptn_yyyy }}' AND ptn_mm = '{{ ptn_mm }}' AND ptn_dd = '{{ ptn_dd }}' "
+            }
+        }
+    }
+}
