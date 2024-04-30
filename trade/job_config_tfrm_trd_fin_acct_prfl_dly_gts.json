@@ -1,7 +1,7 @@
 {
     "area_name": "curated_trd_fin_dly",
     "area_seq": "2",
-    "job_name": "tfrm_trd_fin_acct_prfl_dly",
+    "job_name": "tfrm_trd_fin_acct_prfl_dly_gts",
     "pipeline_name": "TransformationPipeline",
     "job_info": {
         "target_zone": "curated",
